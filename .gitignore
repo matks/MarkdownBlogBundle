@@ -5,3 +5,6 @@ vendor/*
 # Unwanted files
 .idea/
 .DS_Store
+
+# Build
+build/
