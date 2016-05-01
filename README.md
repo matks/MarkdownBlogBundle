@@ -3,6 +3,7 @@ MarkdownBlogBundle
 
 [![Build Status](https://travis-ci.org/matks/MarkdownBlogBundle.svg?branch=master)](https://travis-ci.org/matks/MarkdownBlogBundle)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/?branch=master)
 
 Markdown files based Bundle to integrate a simple blog in your Symfony2 application
 
