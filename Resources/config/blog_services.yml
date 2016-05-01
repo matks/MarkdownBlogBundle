@@ -1,0 +1,25 @@
+parameters:
+
+    markdown_blog.register_file: "%markdown_blog.posts_directory%/library_register.yml"
+
+services:
+
+    markdown_blog.markdown_parser:
+        class: \Parsedown
+        public: false
+
+    markdown_blog.library:
+        class: Matks\MarkdownBlogBundle\Blog\Library
+        factory: ["@markdown_blog.library_factory", "buildLibrary"]
+
+    markdown_blog.library_register:
+        class: Matks\MarkdownBlogBundle\Blog\Register\YamlLibraryRegister
+        public: false
+        arguments: [%markdown_blog.register_file%]
+
+    markdown_blog.library_factory:
+        class: Matks\MarkdownBlogBundle\Blog\Factory\LibraryFactory
+        public: false
+        arguments:
+            - %markdown_blog.posts_directory%
+            - @markdown_blog.library_register
