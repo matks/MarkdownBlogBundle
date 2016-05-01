@@ -3,13 +3,16 @@
 namespace Matks\MarkdownBlogBundle\Tests\Unit\Blog;
 
 use Matks\MarkdownBlogBundle\Blog\Post as BasePost;
+use Matks\MarkdownBlogBundle\Tests\Unit\Util\DataFileLocator;
 use atoum;
 
 class Post extends atoum
 {
     public function testConstruct()
     {
-        $post = new BasePost(self::getLoremIpsumFilepath(), 'a', '2016-01-01');
+        $post = new BasePost(DataFileLocator::getLoremIpsumFilepath(), 'a', '2016-01-01');
+
+        $this->string($post->getName())->isEqualTo('a');
     }
 
     public function testConstructBadFilepath()
@@ -24,27 +27,11 @@ class Post extends atoum
 
     public function testGetHtml()
     {
-        $post = new BasePost(self::getShortFilepath(), 'a', '2016-01-01');
+        $post = new BasePost(DataFileLocator::getShortFilepath(), 'a', '2016-01-01');
 
         $this
             ->string($post->getHtml())
             ->isEqualTo('<p>Short file</p>');
-    }
-
-    /**
-     * @return string
-     */
-    public static function getLoremIpsumFilepath()
-    {
-        return __DIR__.'/../../data/lorem-ipsum.md';
-    }
-
-    /**
-     * @return string
-     */
-    public static function getShortFilepath()
-    {
-        return __DIR__.'/../../data/short-file.md';
     }
 
     /**
@@ -56,15 +43,43 @@ class Post extends atoum
     {
         $result = [];
         for ($i = 1; $i <= $count; ++$i) {
-            $name = 'a'.$i;
+            $name = 'a' . $i;
 
             $result[$name] = new \mock\Matks\MarkdownBlogBundle\Blog\Post(
-                static::getLoremIpsumFilepath(),
+                DataFileLocator::getLoremIpsumFilepath(),
                 $name,
                 'b'
             );
         }
 
         return $result;
+    }
+
+    /**
+     * @param string $filepath
+     * @param string $name
+     * @param string $date
+     *
+     * @return Post
+     */
+    public static function buildPostMock($filepath = null, $name = null, $date = null)
+    {
+        if (null === $filepath) {
+            $filepath = DataFileLocator::getLoremIpsumFilepath();
+        }
+        if (null === $name) {
+            $name = 'A';
+        }
+        if (null === $date) {
+            $date = '2016-01-01';
+        }
+
+        $post = new \mock\Matks\MarkdownBlogBundle\Blog\Post(
+            $filepath,
+            $name,
+            $date
+        );
+
+        return $post;
     }
 }
