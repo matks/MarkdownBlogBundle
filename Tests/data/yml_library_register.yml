@@ -1,0 +1,12 @@
+### Yaml Library Register
+library_entries:
+
+    lorem-ipsum:
+        date: '2017-04-04'
+        category: PHP
+
+    short-file:
+        date: '2016-01-01'
+        category: Misc
+        tags: ['misc', 'specific']
+        alias: flash

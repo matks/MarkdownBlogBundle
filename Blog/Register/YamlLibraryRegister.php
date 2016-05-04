@@ -9,7 +9,7 @@ class YamlLibraryRegister implements LibraryRegisterInterface
     /**
      * @var RegisterEntry[]
      */
-    private $entries;
+    private $entries = [];
 
     /**
      * @param string $registerFilepath
@@ -27,7 +27,7 @@ class YamlLibraryRegister implements LibraryRegisterInterface
      */
     public function isRegistered($name)
     {
-        return true === isset($this->entries[$name]);
+        return (true === isset($this->entries[$name]));
     }
 
     /**
@@ -61,7 +61,7 @@ class YamlLibraryRegister implements LibraryRegisterInterface
             throw new \InvalidArgumentException("File $registerFilepath does not exist");
         }
 
-        $yamlPattern = '#'.'(.*)\.yml$'.'#';
+        $yamlPattern = '#' . '(.*)\.yml$' . '#';
 
         $isAYamlFile = preg_match($yamlPattern, $registerFilepath);
         if (false === $isAYamlFile) {
@@ -71,7 +71,36 @@ class YamlLibraryRegister implements LibraryRegisterInterface
 
     private function parseRegisterContent($registerContent)
     {
-        // @todo
-        $this->entries = [];
+        $moreThanOneKey                 = (count($registerContent) !== 1);
+        $uniqueKeyDifferentFromRegister = (false === array_key_exists('library_entries', $registerContent));
+
+        if ($moreThanOneKey || $uniqueKeyDifferentFromRegister) {
+            throw new \RuntimeException("Yaml library register file is not valid, expects a single node 'library_entries'");
+        }
+
+        $entries = $registerContent['library_entries'];
+
+        foreach ($entries as $postName => $entry) {
+            $publishDate = null;
+            $category    = null;
+            $tags        = [];
+            $alias       = null;
+
+            if (isset($entry['date'])) {
+                $publishDate = $entry['date'];
+            }
+            if (isset($entry['category'])) {
+                $category = $entry['category'];
+            }
+            if (isset($entry['tags'])) {
+                $tags = $entry['tags'];
+            }
+            if (isset($entry['alias'])) {
+                $alias = $entry['alias'];
+            }
+
+            $registerEntry            = new RegisterEntry($postName, $publishDate, $category, $tags, $alias);
+            $this->entries[$postName] = $registerEntry;
+        }
     }
 }

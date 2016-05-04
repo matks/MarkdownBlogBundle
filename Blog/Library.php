@@ -96,7 +96,7 @@ class Library
             if (false === $this->isPostRegistered($postName)) {
                 continue;
             }
-            $posts = $this->posts[$postName];
+            $posts[$postName] = $this->posts[$postName];
         }
 
         return $posts;

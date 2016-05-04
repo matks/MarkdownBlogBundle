@@ -20,18 +20,18 @@ class LibraryFactory
     private $libraryRegister;
 
     /**
-     * @param string                   $postsDirectory  path of the posts directory
+     * @param string                   $postsDirectory path of the posts directory
      * @param LibraryRegisterInterface $libraryRegister
      */
     public function __construct($postsDirectory, LibraryRegisterInterface $libraryRegister)
     {
         if (substr($postsDirectory, -1) !== '/') {
-            $postsDirectory = $postsDirectory.'/';
+            $postsDirectory = $postsDirectory . '/';
         }
 
         $this->validateDirectory($postsDirectory);
 
-        $this->postsDirectory = $postsDirectory;
+        $this->postsDirectory  = $postsDirectory;
         $this->libraryRegister = $libraryRegister;
     }
 
@@ -41,11 +41,13 @@ class LibraryFactory
     public function buildLibrary()
     {
         $markdownFiles = $this->getMarkdownFiles();
-        $posts = [];
+        $posts         = [];
 
         foreach ($markdownFiles as $markdownFile) {
-            if ($this->libraryRegister->isRegistered($markdownFile)) {
-                $entry = $this->libraryRegister->getEntry($markdownFile);
+
+            $onlyFilename = basename($markdownFile, '.md');
+            if ($this->libraryRegister->isRegistered($onlyFilename)) {
+                $entry = $this->libraryRegister->getEntry($onlyFilename);
 
                 $post = $this->buildPostFromRegisterEntry($markdownFile, $entry);
             } else {
@@ -67,9 +69,9 @@ class LibraryFactory
      */
     private function buildPost($filename)
     {
-        $filepath = $this->postsDirectory.$filename;
+        $filepath    = $this->postsDirectory . $filename;
         $publishDate = $this->computeFilePublishDate($filepath);
-        $name = basename($filename, '.md');
+        $name        = basename($filename, '.md');
 
         $post = new Post($filepath, $name, $publishDate);
 
@@ -84,7 +86,7 @@ class LibraryFactory
      */
     private function buildPostFromRegisterEntry($filename, RegisterEntry $entry)
     {
-        $filepath = $this->postsDirectory.$filename;
+        $filepath = $this->postsDirectory . $filename;
 
         if (null !== $entry->getPublishDate()) {
             $publishDate = $entry->getPublishDate();
@@ -156,7 +158,7 @@ class LibraryFactory
         if (false === $creationTimestamp) {
             throw new \InvalidArgumentException("Could not get creation date of file $filepath");
         }
-        $creationDateTime = new \DateTime('@'.$creationTimestamp);
+        $creationDateTime = new \DateTime('@' . $creationTimestamp);
 
         return $creationDateTime->format('Y-m-d');
     }

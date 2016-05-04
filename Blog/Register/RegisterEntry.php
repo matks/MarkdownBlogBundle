@@ -38,13 +38,13 @@ class RegisterEntry
      * @param string[] $tags
      * @param string   $alias
      */
-    public function __construct($name, $publishDate, $category = null, $tags = [], $alias = null)
+    public function __construct($name, $publishDate = null, $category = null, $tags = [], $alias = null)
     {
-        $this->category = $category;
-        $this->name = $name;
+        $this->category    = $category;
+        $this->name        = $name;
         $this->publishDate = $publishDate;
-        $this->tags = $tags;
-        $this->alias = $alias;
+        $this->tags        = $tags;
+        $this->alias       = $alias;
     }
 
     /**
