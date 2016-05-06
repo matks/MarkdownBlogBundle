@@ -16,7 +16,6 @@
             "Matks\\MarkdownBlogBundle\\": ""
         }
     },
-    "target-dir": "Matks/Bundle/CustomerSupportBundle",
     "prefer-stable": true,
     "require": {
         "php": ">=5.5",
