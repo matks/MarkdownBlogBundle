@@ -1,9 +1,11 @@
 MarkdownBlogBundle
 ==================
 
+[![Latest Stable Version](https://poser.pugx.org/matks/markdown-blog-bundle/v/stable.svg)](https://packagist.org/packages/matks/markdown-blog-bundle)
 [![Build Status](https://travis-ci.org/matks/MarkdownBlogBundle.svg?branch=master)](https://travis-ci.org/matks/MarkdownBlogBundle)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/?branch=master)
+[![License](https://poser.pugx.org/matks/markdown-blog-bundle/license.svg)](https://packagist.org/packages/matks/markdown-blog-bundle)
 
 Markdown files based Bundle to integrate a simple blog in your Symfony2 application
 
