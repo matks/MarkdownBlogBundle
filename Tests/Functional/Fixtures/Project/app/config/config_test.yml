@@ -1,0 +1,24 @@
+services:
+    customized_get_set_method_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        public: true
+        calls:
+            - [ setSerializer, [ @serializer ] ]
+        tags:
+            - { name: serializer.normalizer }
+
+framework:
+    secret: test
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+    form:            true
+    csrf_protection: true
+    validation:
+        enabled: true
+        enable_annotations: true
+    serializer:
+        enabled: true
+
+markdown_blog:
+    posts_directory: %kernel.root_dir%/../../../../data/functional

@@ -1,0 +1,13 @@
+default:
+  paths:
+    features: Tests/Functional/Features
+    bootstrap: Tests/Functional/Features/Context
+  context:
+    class: Matks\MarkdownBlogBundle\Tests\Functional\Features\Context\FeatureContext
+  extensions:
+    Behat\Symfony2Extension\Extension:
+      kernel:
+        env: test
+        debug: true
+        path: Tests/Functional/Fixtures/Project/app/AppKernel.php
+        bootstrap: Tests/Functional/Fixtures/Project/app/bootstrap.php

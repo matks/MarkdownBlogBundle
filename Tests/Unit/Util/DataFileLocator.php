@@ -33,6 +33,6 @@ class DataFileLocator
      */
     public static function getDataDirectory()
     {
-        return __DIR__ . '/../../data';
+        return __DIR__ . '/../../data/unit';
     }
 }

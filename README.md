@@ -20,8 +20,12 @@ In a bundle isolation context, just install the dev dependencies with composer
 $ composer install
 ```
 
-Run the unit tests suite with atoum binary.
+Run the unit tests suite with atoum binary
 ```bash
-vendor/bin/atoum -bf vendor/autoload.php -d Tests/Unit/
+$ vendor/bin/atoum -bf vendor/autoload.php -d Tests/Unit/
 ```
 
+Run functional tests with behat binary using the Symfony2 fixture application
+```bash
+$ vendor/bin/behat -c behat.ci.yml
+```

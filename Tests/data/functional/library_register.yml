@@ -1,0 +1,34 @@
+library_entries:
+
+    My-first-post:
+        date: '2016-04-01'
+        category: Blog
+
+    Constructive-thoughts:
+        date: '2016-04-01'
+        category: Blog
+
+    A-dev-tale:
+        date: '2016-05-01'
+        category: Dev
+        tags: ['github', 'open-source']
+
+    A-post-with-a-very-very-very-long-name:
+        date: '2016-05-15'
+        alias: 'A-long-one'
+
+    Dev-tale-sequel:
+        date: '2016-05-17'
+        category: Dev
+
+    XYZ-chapter-one:
+        date: '2016-05-20'
+        tags: ['xyz']
+
+    XYZ-chapter-two:
+        date: '2016-05-20'
+        tags: ['xyz']
+
+    XYZ-chapter-three:
+        date: '2016-05-20'
+        tags: ['xyz']

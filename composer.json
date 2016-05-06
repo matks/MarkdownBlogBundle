@@ -17,11 +17,10 @@
         }
     },
     "target-dir": "Matks/Bundle/CustomerSupportBundle",
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=5.4.4",
-        "symfony/symfony": "2.3.*",
+        "symfony/symfony": "2.8.*",
         "erusev/parsedown": "^1.6"
     },
     "require-dev": {
