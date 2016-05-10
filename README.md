@@ -66,7 +66,7 @@ library_entries:
         tags: ['github', 'open-source']
 ```
 
-For each blog entry, tne entry name must match the Markdown file name.
+For each blog entry, the entry name must match the Markdown file name.
 Available metadata is
  * date (string, format YYYY-MM-DD)
  * category (string)
