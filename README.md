@@ -9,6 +9,8 @@ MarkdownBlogBundle
 
 Markdown files based Bundle to integrate a simple blog in your Symfony2 application
 
+<img src="https://cloud.githubusercontent.com/assets/3830050/15139430/61e1b8e2-1696-11e6-9dec-28e3909848b9.jpg" width="400px"/>
+
 ## Installation
 
 Require the bundle
