@@ -22,4 +22,4 @@ services:
         public: false
         arguments:
             - %markdown_blog.posts_directory%
-            - @markdown_blog.library_register
+            - '@markdown_blog.library_register'
