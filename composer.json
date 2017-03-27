@@ -5,12 +5,7 @@
     "homepage": "https://github.com/matks/MarkdownBlogBundle",
     "license": "MIT",
     "minimum-stability": "dev",
-    "authors": [
-        {
-            "name": "Mathieu Ferment",
-            "email": "mathieu.ferment@gmail.com"
-        }
-    ],
+    "authors": [{"name": "Mathieu Ferment"}],
     "autoload": {
         "psr-4": {
             "Matks\\MarkdownBlogBundle\\": ""
