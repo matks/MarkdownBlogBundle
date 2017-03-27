@@ -5,12 +5,7 @@
     "homepage": "https://github.com/matks/MarkdownBlogBundle",
     "license": "MIT",
     "minimum-stability": "dev",
-    "authors": [
-        {
-            "name": "Mathieu Ferment",
-            "email": "mathieu.ferment@gmail.com"
-        }
-    ],
+    "authors": [{"name": "Mathieu Ferment"}],
     "autoload": {
         "psr-4": {
             "Matks\\MarkdownBlogBundle\\": ""
@@ -19,7 +14,13 @@
     "prefer-stable": true,
     "require": {
         "php": ">=5.5",
-        "symfony/symfony": "2.8.*",
+        "symfony/config": ">=2.8",
+        "symfony/validator": ">=2.8",
+        "symfony/yaml": ">=2.8",
+        "symfony/dependency-injection": ">=2.8",
+        "symfony/http-kernel": ">=2.8",
+        "symfony/http-foundation": ">=2.8",
+        "symfony/serializer": ">=2.8",
         "erusev/parsedown": "^1.6"
     },
     "require-dev": {

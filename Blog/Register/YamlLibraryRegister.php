@@ -18,7 +18,8 @@ class YamlLibraryRegister implements LibraryRegisterInterface
     {
         $this->validateRegisterFilepath($registerFilepath);
 
-        $registerContent = Yaml::parse($registerFilepath);
+        $registerContent = Yaml::parse(file_get_contents(realpath($registerFilepath)));
+
         $this->parseRegisterContent($registerContent);
     }
 
