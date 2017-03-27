@@ -7,7 +7,7 @@ MarkdownBlogBundle
 [![Code Coverage](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/matks/MarkdownBlogBundle/?branch=master)
 [![License](https://poser.pugx.org/matks/markdown-blog-bundle/license.svg)](https://packagist.org/packages/matks/markdown-blog-bundle)
 
-Markdown files based Bundle to integrate a simple blog in your Symfony2 application
+Markdown files based Bundle to integrate a simple blog in your Symfony application
 
 <img src="https://cloud.githubusercontent.com/assets/3830050/15139430/61e1b8e2-1696-11e6-9dec-28e3909848b9.jpg" width="400px"/>
 
