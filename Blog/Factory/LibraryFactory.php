@@ -2,6 +2,7 @@
 
 namespace Matks\MarkdownBlogBundle\Blog\Factory;
 
+use Matks\MarkdownBlogBundle\Blog\ExternalPost;
 use Matks\MarkdownBlogBundle\Blog\Library;
 use Matks\MarkdownBlogBundle\Blog\Post;
 use Matks\MarkdownBlogBundle\Blog\Register\LibraryRegisterInterface;
@@ -100,13 +101,24 @@ class LibraryFactory
             $name = basename($filename, '.md');
         }
 
-        $post = new Post(
-            $filepath,
-            $name,
-            $publishDate,
-            $entry->getCategory(),
-            $entry->getTags()
-        );
+        if ($entry->getBlogType() === Post::TYPE_EXTERNAL) {
+            $post = new ExternalPost(
+                $filepath,
+                $name,
+                $publishDate,
+                $entry->getCategory(),
+                $entry->getTags(),
+                $entry->getUrl()
+            );
+        } else {
+            $post = new Post(
+                $filepath,
+                $name,
+                $publishDate,
+                $entry->getCategory(),
+                $entry->getTags()
+            );
+        }
 
         return $post;
     }
