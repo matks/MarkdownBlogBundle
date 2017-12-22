@@ -1,7 +1,7 @@
 {
     "name": "matks/markdown-blog-bundle",
     "type": "symfony-bundle",
-    "description": "Markdown files based Bundle to integrate a simple blog in your Symfony2 application",
+    "description": "Markdown files based Bundle to integrate a simple blog in your Symfony application",
     "homepage": "https://github.com/matks/MarkdownBlogBundle",
     "license": "MIT",
     "minimum-stability": "dev",
