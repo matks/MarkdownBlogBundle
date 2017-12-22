@@ -2,6 +2,7 @@
 
 namespace Matks\MarkdownBlogBundle\Blog\Register;
 
+use Matks\MarkdownBlogBundle\Blog\Post;
 use Symfony\Component\Yaml\Yaml;
 
 class YamlLibraryRegister implements LibraryRegisterInterface
@@ -86,6 +87,8 @@ class YamlLibraryRegister implements LibraryRegisterInterface
             $category    = null;
             $tags        = [];
             $alias       = null;
+            $url       = null;
+            $blogType = Post::TYPE_STANDARD;
 
             if (isset($entry['date'])) {
                 $publishDate = $entry['date'];
@@ -99,8 +102,12 @@ class YamlLibraryRegister implements LibraryRegisterInterface
             if (isset($entry['alias'])) {
                 $alias = $entry['alias'];
             }
+            if (isset($entry['external'])) {
+                $url = $entry['external'];
+                $blogType = Post::TYPE_EXTERNAL;
+            }
 
-            $registerEntry            = new RegisterEntry($postName, $publishDate, $category, $tags, $alias);
+            $registerEntry            = new RegisterEntry($postName, $publishDate, $category, $tags, $alias, $blogType, $url);
             $this->entries[$postName] = $registerEntry;
         }
     }

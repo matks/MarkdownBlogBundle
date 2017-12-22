@@ -4,34 +4,37 @@ namespace Matks\MarkdownBlogBundle\Blog;
 
 class Post
 {
+    const TYPE_STANDARD = 'standard';
+    const TYPE_EXTERNAL = 'external';
+
     /**
      * Post names must be unique.
      *
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * Date with format YYYY-MM-DD.
      *
      * @var string
      */
-    private $publishDate;
+    protected $publishDate;
 
     /**
      * @var string|null
      */
-    private $category;
+    protected $category;
 
     /**
      * @var string[]
      */
-    private $tags;
+    protected $tags;
 
     /**
      * @var string
      */
-    private $contentFilepath;
+    protected $contentFilepath;
 
     /**
      * @param string   $contentFilepath
@@ -107,5 +110,24 @@ class Post
         $parsedown = new \Parsedown();
 
         return $parsedown->text($markdownFileContent);
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return self::TYPE_STANDARD;
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function getAvailableBlogTypes()
+    {
+        return [
+            self::TYPE_EXTERNAL,
+            self::TYPE_STANDARD
+        ];
     }
 }
